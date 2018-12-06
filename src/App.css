@@ -1,3 +1,14 @@
-.hidden{
-  display:none;
+.newMovieForm {
+  display:flex;
+  flex-direction: column;
+}
+.header{
+  color:white;
+  background-color:rgb(12, 12, 88)
+}
+
+
+
+.hidden {
+    display:none;
 }
