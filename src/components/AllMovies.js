@@ -5,19 +5,24 @@ const AllMovies = (props) => {
     let movies = props.movieList.map(movie => {
         return (
             <div key={`movie${movie.id}`} className='row'>
-                <div className='col-2'>{movie.title}</div>
-                <div className='col-2'>{movie.director}</div>
-                <div className='col-2'>{movie.year}</div>
-                <div className='col-2'>{movie.rating}</div>
-                <button onClick={props.deleteMovie} id={movie.id} className='col-2'>Delete</button>
-                {/* <button onClick={props.editMovieButton} id={movie.id} className='col-2'>Edit</button> */}
-                <Link className='col-2' to='/editmovies'><button onClick={props.editMovieButton} id={movie.id}>Edit</button></Link>
+                <Link className='col-8 container' to='/movieInfo' id={movie.id} onClick={props.oneMovieClick}>
+                    <div id={movie.id} className='row'>
+                        <div id={movie.id} className='col-3'>{movie.title}</div>
+                        <div id={movie.id} className='col-3'>{movie.director}</div>
+                        <div id={movie.id} className='col-3'>{movie.year}</div>
+                        <div id={movie.id} className='col-3'>{movie.rating}</div>
+                    </div>
+                </Link>
+                <div className='container col-4'>
+                    <button onClick={props.deleteMovie} id={movie.id} className='col-4'>Delete</button>
+                    <Link className='col-4' to='/editmovies'><button onClick={props.editMovieButton} id={movie.id}>Edit</button></Link>
+                </div>
             </div>
         )
     })
     return (
         <>
-            <div className={`${props.showAllMovies ? '' : 'hidden'}`}>
+            <div>
                 <div className='row'>
                     <div className='col-9'>ALL MOVIES</div>
                     <button className='col-3'><Link to='/newmovie'>New Movie</Link></button>

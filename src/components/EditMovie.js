@@ -1,42 +1,35 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const EditMovie = (props) => {
-    let movie = props.movieList.map(movie => {
-        if (movie.id === props.buttonID) {
-            return (
-                <div className='col-5 newMovieForm'>
-                    <h3><b>{movie.title}</b></h3>
-                    <div className='row'>
-                        <label>Title</label>
-                        <input onChange={props.handleInput} value={movie.title} className='inputFields' type='text' placeholder='Movie Title' name='title'></input>
-                    </div>
-                    <div className='row'>
-                        <label>Director</label>
-                        <input onChange={props.handleInput} value={movie.director} className='inputFields' type='text' placeholder='Name' name='director'></input>
-                    </div>
-                    <div className='row'>
-                        <label>Year</label>
-                        <input onChange={props.handleInput} value={movie.year} className='inputFields' type='text' placeholder='2000' name='year'></input>
-                    </div>
-                    <div className='row'>
-                        <label>My Rating</label>
-                        <input onChange={props.handleInput} value={movie.rating} className='inputFields' type='text' placeholder='#' name='rating'></input>
-                    </div>
-                    <div className='row'>
-                        <label>Poster URL</label>
-                        <input onChange={props.handleInput} value={movie.url} className='inputFields' type='text' placeholder='www.url.com' name='url'></input>
-                    </div>
-                    <button onClick={props.addMovie} type="submit" className="btn btn-primary">Add Movie</button>
+    let movie = props.movie.map(movie => {
+        return (
+            <div className='editMovies' key={`movie ${movie.id}`}>
+                <div><b>{movie.title}</b></div>
+                <img alt={`${movie.title} Poster`} src={movie.url} />
+                <div className='col-5 addForm'>
+                    <label>Title</label>
+                    <input onChange={props.handleInput} className='movieInput' type='text' defaultValue={movie.title} name='title' />
+                    <br></br>
+                    <label>Director</label>
+                    <input onChange={props.handleInput} className='movieInput' type='text' defaultValue={movie.director} name='director' />
+                    <br></br>
+                    <label>Year</label>
+                    <input onChange={props.handleInput} className='movieInput' type='text' defaultValue={movie.year} name='year' />
+                    <br></br>
+                    <label>My Rating</label>
+                    <input onChange={props.handleInput} className='movieInput ratingInput' defaultValue={movie.rating} type='number' min='1' max='5' name='rating' />
+                    <br></br>
+                    <label>Poster URL</label>
+                    <input onChange={props.handleInput} className='movieInput' type='text' defaultValue={movie.url} name='url' />
                 </div>
-            )
-        }
-        else {
-            return null
-        }
+                <Link to={`${props.allInputted ? '/movies' : '/edit'}`}><button onClick={props.editMovie} id={movie.id}>Edit Movie</button></Link>
+            </div >
+        )
     })
     return (
         <>
-            <div className={`${props.showEditMovie ? '' : 'hidden'}`}>
+            <div>
                 <div>{movie}</div>
             </div>
         </>

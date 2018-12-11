@@ -3,12 +3,29 @@
   flex-direction: column;
 }
 .header{
+  padding-top:1%;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
   color:white;
-  background-color:rgb(12, 12, 88)
+  background-color:#262626;
+  height:4em;
 }
-
-
-
+img{
+  max-height:15em;
+  min-height:14.9em;
+  width:auto
+}
+.editMovies{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.homeScreen{
+  height:100vh;
+  width:100vw;
+  background-image:url('./movie-theater.jpg')
+}
 .hidden {
     display:none;
 }
