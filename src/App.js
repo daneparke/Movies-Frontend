@@ -48,7 +48,7 @@ class App extends Component {
     }
   }
   editMovieButton = (event) => {
-    fetch(`http://localhost:3004/movies/${event.target.id}`)
+    fetch(`https://danemoviesdb.herokuapp.com/movies/${event.target.id}`)
       .then(result => result.json())
       .then((response) => {
         this.setState({
@@ -63,7 +63,7 @@ class App extends Component {
       })
   }
   oneMovieClick = (event) => {
-    fetch(`http://localhost:3004/movies/${event.target.id}`)
+    fetch(`https://danemoviesdb.herokuapp.com/movies/${event.target.id}`)
       .then(result => result.json())
       .then((response) => {
         this.setState({
@@ -86,7 +86,7 @@ class App extends Component {
         url: this.state.url,
         year: this.state.year
       }
-      fetch(`http://localhost:3004/movies/${event.target.id}`, {
+      fetch(`https://danemoviesdb.herokuapp.com/movies/${event.target.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -117,7 +117,7 @@ class App extends Component {
         rating: this.state.rating,
         url: this.state.url,
       }
-      fetch('http://localhost:3004/movies', {
+      fetch('https://danemoviesdb.herokuapp.com/movies', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -139,12 +139,12 @@ class App extends Component {
     }
   }
   deleteMovie = (event) => {
-    fetch(`http://localhost:3004/movies/${event.target.id}`, {
+    fetch(`https://danemoviesdb.herokuapp.com/movies/${event.target.id}`, {
       method: 'DELETE',
     }).then(() => this.loadMovies())
   }
   loadMovies = () => {
-    fetch("http://localhost:3004/movies")
+    fetch('https://danemoviesdb.herokuapp.com/movies')
       .then(result => result.json())
       .then((response) => {
         this.setState({
@@ -159,12 +159,13 @@ class App extends Component {
           <div><b>Dane's Movie Ratings</b></div>
           <small><b>See if your opinions are correct!</b></small>
         </div>
-        <Route path='/' exact render={() => (<Home homeButton={this.homeButton} {...this.state} />)} />
-        <Route path='/newmovie' render={() => (<NewMovie addMovie={this.addMovie} handleInput={this.handleInput} {...this.state} />)} />
-        <Route path='/editmovies' render={() => (<EditMovie handleInput={this.handleInput} editMovie={this.editMovie}{...this.state} />)} />
-        <Route path='/movies' render={() => (<AllMovies oneMovieClick={this.oneMovieClick} loadMovies={this.loadMovies} deleteMovie={this.deleteMovie} editMovieButton={this.editMovieButton} newMovieButton={this.newMovieButton}{...this.state} />)} />
-        <Route path='/movieInfo' render={() => (<OneMovie {...this.state} />)} />
-
+        <div className='mainCont'>
+          <Route path='/' exact render={() => (<Home homeButton={this.homeButton} {...this.state} />)} />
+          <Route path='/newmovie' render={() => (<NewMovie addMovie={this.addMovie} handleInput={this.handleInput} {...this.state} />)} />
+          <Route path='/editmovies' render={() => (<EditMovie handleInput={this.handleInput} editMovie={this.editMovie}{...this.state} />)} />
+          <Route path='/movies' render={() => (<AllMovies oneMovieClick={this.oneMovieClick} loadMovies={this.loadMovies} deleteMovie={this.deleteMovie} editMovieButton={this.editMovieButton} newMovieButton={this.newMovieButton}{...this.state} />)} />
+          <Route path='/movieInfo' render={() => (<OneMovie {...this.state} />)} />
+        </div>
       </>
     );
   }

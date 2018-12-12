@@ -26,6 +26,9 @@ img{
   width:100vw;
   background-image:url('./movie-theater.jpg')
 }
+.mainCont{
+  padding-left:2%;
+}
 .hidden {
     display:none;
 }
