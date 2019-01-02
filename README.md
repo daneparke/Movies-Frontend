@@ -5,7 +5,7 @@ In this application you can add, edit, or delete movies from the collection of m
 
 ## Getting Started
 
-Fork and clone this repository and run npm install.
+Fork and clone this repository and run `npm install`.
 
 ### Technologies
 
