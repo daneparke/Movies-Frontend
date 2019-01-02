@@ -7,9 +7,9 @@ In this application you can add, edit, or delete movies from the collection of m
 
 Fork and clone this repository and run `npm install`.
 
-### Technologies
-
-For the front end I used: React and React Router
+### Technologies Used
+* [React](https://reactjs.org/docs/getting-started.html) - The web framework used
+* [Router](https://github.com/ReactTraining/react-router/tree/master/packages/react-router/docs) - Library
 
 ### Deployed Link:
 
