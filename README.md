@@ -15,7 +15,7 @@ React Router
 
 ### Deployed Link:
 
-[Dane's Movie Ratings](https://danemoviesfront.herokuapp.com/movies)
+[Dane's Movie Ratings](https://danemoviesfront.herokuapp.com)
 
 
 
