@@ -9,9 +9,7 @@ Fork and clone this repository and run `npm install`.
 
 ### Technologies
 
-For the front end I used:
-React 
-React Router
+For the front end I used: React and React Router
 
 ### Deployed Link:
 
